@@ -1,0 +1,24 @@
+<html>
+<head>
+
+</head>
+<body>
+<h3> Let's See your password meets the requirements</h3>
+<h5> Oh no! Looks like you had issues with your password!</h5>
+
+<h6>Here are the requirements failed</h6>
+<div id="mainData">
+<script>
+  var data = localStorage.getItem("validData");
+  let mainData =
+            document.getElementById("mainData");
+			data.split(",").forEach((item) => {
+            let li =
+                document.createElement("h3");
+            li.innerText = item;
+            mainData.appendChild(li);
+        });
+</script>
+</div>
+</body>
+</html>

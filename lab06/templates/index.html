@@ -1,0 +1,91 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	
+</head>
+
+<body onload="clearData()">
+
+	<h1>Hello Data</h1>
+
+	<h3> Welcome to Password Check</h3>
+	<h5> Let's See your password is Secure!</h5>
+	<span> Fill out the form below with a UserName and passowrd that has three restriction </span>
+	<ol>
+	  <li> Must have an Upper case letter somewhere</li>
+	  <li> Must have a Lower case letter somewhere</li>
+	  <li> Must have a Number at end</li>
+	 </ol>
+
+	<form id="myForm">
+		UserName : <input type="text" id="username">
+		Password: <input type="text" id="password">
+		<input type="button" id="submit" onClick="ValidateFunction();" value="Submit here">
+	</form>
+</body>
+<script>
+
+var k1=0;
+        function clearData()
+		{
+		   k1=0;
+           localStorage.clear();
+		}
+		function validatePassword(password) {
+
+			var data = [];
+			var k=0;
+			if (password.length < 8) {
+				data.push("1. Password must contain 8 characters");
+				k++;
+			}
+
+			// Check if password contains both upper and lower case letters
+			if (!/[a-z]/.test(password) || !/[A-Z]/.test(password)) {
+				data.push("2. Password Contain both Upper and Lower characters");
+				k++;
+			}
+			// Check if password ends with a number
+			if (!/\d$/.test(password)) {
+				data.push("3. Password ends with Number");
+				k++;
+			}
+			if (k == 0) {
+				data.push("Success");
+			}
+			return data;
+		}
+
+		function ValidateFunction() {
+			var userName = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			
+			var validateData= validatePassword(password);
+			
+			if(validateData[0]=="Success")
+			{
+				var curREf= window.location.href;
+				var ele = curREf.split("/");
+				ele.pop();
+				ele.push("reports.html");
+				window.location = ele.join("/");
+			}
+			else
+			{
+			    k1++;
+				if(k1>3)
+				{
+				  validateData.push("You are entered 3 times Wrong Password");
+				}
+			    localStorage.setItem("validData", validateData);
+				var curREf= window.location.href;
+				var ele = curREf.split("/");
+				ele.pop();
+				ele.push("invalid.html");
+				window.location = ele.join("/");
+				
+			}
+
+		}
+	</script>
+</html>

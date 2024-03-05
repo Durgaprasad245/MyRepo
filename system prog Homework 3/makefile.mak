@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99
 
-SRCS = dnuthala.c
+SRCS = dnuthala_HW03.c
 OBJS = $(SRCS:.c=.o)
 EXEC = search
 SYMLINK = search_sym

@@ -7,10 +7,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra
 
 # Source files
-SRCS = job_scheduler.c
+SRCS = dnuthala_HW04.c
 
 # Executable name
-TARGET = job_scheduler
+TARGET = dnuthala_HW04
 
 all: $(TARGET)
 

@@ -5,14 +5,14 @@ This is a simple job scheduler implemented in C. It allows users to submit jobs,
 Instructions
 
 Compilation
-To compile the C source file into an executable, you can use the `gcc` compiler. Open your terminal and navigate to the directory containing the `job_scheduler.c` file, then run the following command:
+To compile the C source file into an executable, you can use the `gcc` compiler. Open your terminal and navigate to the directory containing the `dnuthala_HW04.c` file, then run the following command:
 
 ```bash
-gcc job_scheduler.c -o job_scheduler
+gcc dnuthala_HW04.c -o dnuthala_HW04
 
 Execution
 
-./job_scheduler
+./dnuthala_HW04
 
 Commands
 
